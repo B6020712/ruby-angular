@@ -6,6 +6,13 @@
 | Database | `SQLite3`  |
 
 ---
+**Angular(npm) Command's**
+```node
+ng serve --open
+```
+> note: don't forget to go inside frontend directory
+---
+
 **Ruby on Rails Command's**
 ```ruby
 rails server
