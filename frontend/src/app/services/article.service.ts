@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +13,23 @@ export class ArticleService {
     return this.http.get(this.url+'/api/v1/articles');
   }
 
-  addArticle() {
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  findArticle() {
+  addArticle(data: any) {
+    return this.http.post(this.url+'/api/v1/articles', data, this.httpOptions);
   }
 
-  updateArticle() {
+  findArticle(id: any) {
+    return this.http.get(this.url+'/api/v1/articles/'+id);
   }
 
-  deleteArticle() {
+  updateArticle(data: any, id: any) {
+    return this.http.put(this.url+'/api/v1/articles/'+id, data, this.httpOptions);
+  }
+
+  deleteArticle(id: any) {
+    return this.http.delete(this.url+'/api/v1/articles/'+id);
   }
 }
